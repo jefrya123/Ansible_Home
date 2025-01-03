@@ -1,0 +1,10 @@
+---
+- name: Install htop on all servers
+  hosts: all
+  become: yes  # Use sudo for privileged tasks
+  tasks:
+    - name: Ensure htop is installed
+      apt:
+        name: htop
+        state: present
+      when: ansible_os_family == "Debian"
