@@ -42,9 +42,15 @@ def update_inventory(vms):
 # Commit and push changes to GitHub
 def push_to_github():
     try:
+        # Ensure we are on the main branch
+        subprocess.run(["git", "checkout", "main"], cwd=REPO_PATH, check=True)
+        
+        # Add changes and commit
         subprocess.run(["git", "add", INVENTORY_FILE_PATH], cwd=REPO_PATH, check=True)
         subprocess.run(["git", "commit", "-m", "Update Ansible inventory"], cwd=REPO_PATH, check=True)
-        subprocess.run(["git", "push"], cwd=REPO_PATH, check=True)
+        
+        # Push changes
+        subprocess.run(["git", "push", "origin", "main"], cwd=REPO_PATH, check=True)
         print("Changes pushed to GitHub.")
     except subprocess.CalledProcessError as e:
         print(f"Error pushing changes to GitHub: {e}")
