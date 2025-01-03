@@ -1,9 +1,10 @@
 all:
   hosts:
-  - KMaster
-  - Jenkins
-  - Proxy
-  - Prometheus
-  - K1
-  - RaptorMain
   - K2
+  - JenkinsAgent
+  - K1
+  - Prometheus
+  - Proxy
+  - Jenkins
+  - RaptorMain
+  - KMaster
