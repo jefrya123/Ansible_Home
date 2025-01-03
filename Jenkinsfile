@@ -1,7 +1,7 @@
 pipeline {
-    agent { label 'ansible' }
+    agent { label 'ansible' }  // Ensures this runs on the agent with Ansible installed
     triggers {
-        githubPush()
+        githubPush()  // Trigger pipeline on GitHub push events
     }
     stages {
         stage('Pull Repository') {
@@ -11,10 +11,20 @@ pipeline {
         }
         stage('Run Ansible Playbook') {
             steps {
-                sh '''
-                ansible-playbook -i inventories/inventory.yml playbooks/site.yml
-                '''
+                script {
+                    sh '''
+                    ansible-playbook -i inventory.yml playbooks/site.yml
+                    '''
+                }
             }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check logs for details.'
         }
     }
 }
