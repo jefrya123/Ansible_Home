@@ -10,8 +10,8 @@ CSRF_TOKEN = "67781F04:4IeucgnuoMjIbhClrIYKVX46UHrHP0U/ie+OPmuduts"
 NODE_NAME = "pve"
 
 # GitHub repository path
-REPO_PATH = r"C:\Users\jefry\Desktop\Projects\Ansible_Home"  # Update with the local path to your cloned repository
-INVENTORY_FILE_PATH = os.path.join(REPO_PATH, "inventory.yml")
+REPO_PATH = "."
+INVENTORY_FILE = f"{REPO_PATH}/inventory.yml"
 
 # Fetch VMs from Proxmox
 def fetch_vms():
