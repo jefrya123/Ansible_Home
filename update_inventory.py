@@ -10,8 +10,12 @@ CSRF_TOKEN = "67781F04:4IeucgnuoMjIbhClrIYKVX46UHrHP0U/ie+OPmuduts"
 NODE_NAME = "pve"
 
 # GitHub repository path
-REPO_PATH = "."
-INVENTORY_FILE = f"{REPO_PATH}/inventory.yml"
+REPO_PATH = os.path.dirname(os.path.abspath(__file__))  # Use the directory of this script
+INVENTORY_FILE_PATH = os.path.join(REPO_PATH, "inventory.yml")
+
+# Suppress HTTPS warnings
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Fetch VMs from Proxmox
 def fetch_vms():
