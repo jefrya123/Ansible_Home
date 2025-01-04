@@ -1,6 +1,5 @@
 all:
   hosts:
-<<<<<<< HEAD
     server1:
       ansible_host: 192.168.1.230
       ansible_user: jeff
@@ -22,15 +21,8 @@ all:
     server7:
       ansible_host: 192.168.1.15
       ansible_user: jeff
+    server8:
+      ansible_host: 192.168.1.131
+      ansible_user: jeff
   vars:
-    ansible_ssh_private_key_file: /mnt/c/Users/jefry/.ssh/id_ed25519
-=======
-  - K2
-  - JenkinsAgent
-  - K1
-  - Prometheus
-  - Proxy
-  - Jenkins
-  - RaptorMain
-  - KMaster
->>>>>>> fd9f12a5f6505b934c69f4b2c91ee83dbea9d166
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa
